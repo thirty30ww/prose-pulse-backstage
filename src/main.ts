@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-// 🔥 使用 auth-matrix 的 App 组件
+
 import App from '@/App.vue'
 import router from '@/router'
 import ElementPlus from 'element-plus'
@@ -16,8 +16,11 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 // 导入 auth-matrix 的核心功能
 import { useAuthStore, useThemeStore } from '@/stores'
-import { ensureRoutesLoaded } from '@/router/dynamicRoutes'
+import {ensureRoutesLoaded, setPathFormatter} from '@/router/dynamicRoutes'
 import { setupDirectives } from '@/directives'
+
+//  配置路径格式化函数
+setPathFormatter((component: string) => `../auth-matrix/frontend/src/views${component}.vue`);
 
 const app = createApp(App)
 const pinia = createPinia()
