@@ -11,12 +11,14 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // 🔥 关键修复：让 @/ 指向 auth-matrix 的 src，这样 auth-matrix 文件中的 @/ 导入就能正确解析
+      '@/services': path.resolve(__dirname, 'src/services'),
+
+      // 让 @/ 指向 auth-matrix 的 src，这样 auth-matrix 文件中的 @/ 导入就能正确解析
       '@': path.resolve(__dirname, '../auth-matrix/frontend/src'),
       // 指向auth-matrix的源码
       '@auth-matrix': path.resolve(__dirname, '../auth-matrix/frontend/src'),
       // backstage 自己的源码别名
-      '@backstage': path.resolve(__dirname, 'src')
+      '@backstage': path.resolve(__dirname, 'src'),
     }
   },
   server: {
