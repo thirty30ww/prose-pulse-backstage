@@ -7,6 +7,7 @@
     ],
     "baseUrl": ".",
     "paths": {
+      // 注意：以下路径配置需要与 src/config/paths.ts 中的 AUTH_MATRIX_PATHS.SRC 保持同步
       "@/*": [
         "../auth-matrix/frontend/src/*"
       ],
@@ -29,6 +30,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
+    // 注意：以下路径需要与 src/config/paths.ts 中的 AUTH_MATRIX_PATHS.SRC 保持同步
     "../auth-matrix/frontend/src/**/*",
     "../auth-matrix/frontend/src/**/*.vue"
   ]
