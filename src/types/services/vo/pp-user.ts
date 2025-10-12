@@ -1,4 +1,4 @@
-import type {UserVO} from "@/types";
+import type {UserVO} from "@auth-matrix/types";
 
 /**
  * 拓展用户接口

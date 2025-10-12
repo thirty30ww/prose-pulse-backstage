@@ -2,23 +2,28 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
-import App from '@/App.vue'
-import router from '@/router'
+import App from '@auth-matrix/App.vue'
+import router from '@auth-matrix/router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 // 导入 auth-matrix 的样式
-import '@/assets/style/index.css'
+import '@auth-matrix/assets/style/index.css'
+
 
 // 导入Element Plus图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 // 导入 auth-matrix 的核心功能
-import { useAuthStore, useThemeStore } from '@/stores'
-import { ensureRoutesLoaded, setPathFormatter } from '@/router/dynamicRoutes'
-import { setupDirectives } from '@/directives'
+import { useAuthStore, useThemeStore } from '@auth-matrix/stores'
+import { ensureRoutesLoaded, setPathFormatter, setCurrentProjectModules } from '@auth-matrix/router/dynamicRoutes'
+import { setupDirectives } from '@auth-matrix/directives'
 import { pathUtils } from '@backstage/config/paths'
+
+// 配置当前项目的组件映射
+const backstageModules = import.meta.glob('./views/**/*.vue');
+setCurrentProjectModules(backstageModules);
 
 //  配置路径格式化函数
 setPathFormatter((component: string) => pathUtils.formatComponentPath(component));
