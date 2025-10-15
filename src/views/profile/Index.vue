@@ -1,11 +1,16 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-个人中心
+  <ProfileIndex :extraFields="extraFields" />
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import { Message } from '@element-plus/icons-vue'
+import ProfileIndex from '@auth-matrix/views/profile/Index.vue'
 
-</style>
+const extraFields = [
+  {
+    key: 'email',
+    label: '邮箱',
+    icon: Message
+  }
+]
+</script>
