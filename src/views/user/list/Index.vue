@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import UserListIndex from '@/views/user/list/Index.vue'
 import UserDialog from '@/views/user/list/UserDialog.vue'
-import type { FormExtraField } from '@/types/views'
+import type { FormExtraField } from '@/types'
 
 /**
  * 扩展字段配置
