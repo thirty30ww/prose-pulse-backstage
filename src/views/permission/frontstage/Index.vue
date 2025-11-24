@@ -82,9 +82,7 @@ onMounted(() => {
       ref="tableRef"
       :data="permissionTreeData"
       row-key="node.id"
-      :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
-      v-loading="isLoading"
-      element-loading-text="加载权限数据中..."
+      v-table-loading="{ loading: isLoading || false, text: '加载权限数据中...'}"
     >
       <el-table-column label="权限名称" min-width="200">
         <template #default="{ row }">
@@ -118,7 +116,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--margin-size-lg);
+  margin-bottom: var(--gap-size-lg);
 }
 
 .left-actions {

@@ -10,7 +10,7 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 // 导入 auth-matrix 的样式
 import '@auth-matrix/assets/style/index.css'
-
+import '@backstage/assets/style/index.css'
 
 // 导入Element Plus图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
@@ -52,7 +52,7 @@ if (authStore.userLoggedIn) {
     await ensureRoutesLoaded(router)
 } else {
     // 用户未登录，使用本地存储初始化
-    await themeStore.initThemeColors()
+    themeStore.initThemeColors()
 }
 
 // 初始化路由
